@@ -33,6 +33,8 @@ export default class App extends React.Component {
           })
         }
       }, {
+        navigationOptions: {
+          tabBarVisible: false },
         tabBarPosition: 'bottom',
         lazy: true
         });
