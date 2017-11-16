@@ -14,4 +14,4 @@ class AuthScreen extends Component {
 	}
 }
 
-export default AuthScreen;
+export default AuthScreen; 
