@@ -10,10 +10,14 @@ class Slides extends Component {
 	renderLastSlide(index) {
 		if (index === this.props.data.length - 1) {
 			return (
+				<View style= {{ marginTop: 15}}>
 				<Button
 					title="Onwards!"
 					raised
+					buttonStyle={styles.buttonStyle}
+					onPress={this.props.onComplete}
 				/>
+				</View>
 				);
 		}
 	}
@@ -55,6 +59,9 @@ const styles = {
 	textStyle: {
 		fontSize: 30,
 		color:'white'
+	},
+	buttonStyle: {
+		backgroundColor:'#0288D1'
 	}
 };
 
