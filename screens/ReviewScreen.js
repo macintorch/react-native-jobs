@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text, Platform, ScrollView } from 'react-native';
+import {View, Text, Platform, ScrollView, Linking } from 'react-native';
 import {Button, Card} from 'react-native-elements';
 import { connect } from 'react-redux';
+import { MapView } from 'expo';
 
 class ReviewScreen extends Component {
 
@@ -27,13 +28,40 @@ class ReviewScreen extends Component {
 
 	renderLikedJobs() {
 		return this.props.likedJobs.map(job => {
+			const {
+					company, formattedRelativeTime, url,
+					longitude, latitude, jobtitle, jobkey
+					} =job;
+
+			const initialRegion = {
+				longitude,
+				latitude,
+				latitudeDelta: 0.045,
+				longitudeDelta: 0.02
+			}
+
 			return (
-					<Card>
+					<Card title={jobtitle} key={jobkey}>
 						<View style={{ height: 200 }}>
+
+						<MapView
+							style={{ flex: 1}}
+							cacheEnabled={Platform.OS === 'android'}
+							scrollEnabled={false}
+							initialRegion={initialRegion}
+						>
+
+						</MapView>
 							<View style={styles.detailWrapper}>
-								<Text style={styles.italics}>{job.company}</Text>
-								<Text style={styles.italics}>{job.formattedRelativeTime}</Text>
+								<Text style={styles.italics}>{company}</Text>
+								<Text style={styles.italics}>{formattedRelativeTime}</Text>
 							</View>
+							<Button
+								title="Apply Now!"
+								backgroundColor="#03A9F4"
+								onPress={() => Linking.openURL(url)}
+							/>
+
 						</View>
 					</Card>
 				);
