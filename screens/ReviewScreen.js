@@ -48,7 +48,7 @@ class ReviewScreen extends Component {
 						<View style={{ height: 200 }}>
 
 						<MapView
-							style={{ flex: 1}}
+							style={{ flex: 2}}
 							cacheEnabled={Platform.OS === 'android'}
 							scrollEnabled={false}
 							initialRegion={initialRegion}

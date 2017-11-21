@@ -20,3 +20,6 @@ $ npm install --save latlng-to-zip
 
 7. install qs : A querystring parsing and stringifying library
 $ npm install --save qs
+
+8. install redux persist to persist and rehydrate a redux store
+$ npm install --save redux-persist
